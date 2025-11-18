@@ -23,8 +23,14 @@ export default function TextForm(props){
         setText(newText);
     }
     const handleRev = ()=>{
-        console.log("Reverse String was clicked " + text)
+        console.log("Reverse was clicked " + text)
         let newText = text.split('').reverse().join('');
+        setText(newText);
+    }
+    
+    const handleRevStr = ()=>{
+        console.log("Reverse String was clicked " + text)
+        let newText = text.split(' ').reverse().join(' ');
         setText(newText);
     }
     
@@ -42,7 +48,8 @@ export default function TextForm(props){
             </div>
             <button className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to UpperCase</button>
             <button className="btn btn-primary mx-1" onClick={handleLowClick}>Convert to LowerCase</button>
-            <button className="btn btn-primary mx-1" onClick={handleRev}>Reverse String</button>
+            <button className="btn btn-primary mx-1" onClick={handleRev}>Reverse</button>
+            <button className="btn btn-primary mx-1" onClick={handleRevStr}>Invert String</button>
             <button className="btn btn-primary mx-1" onClick={handleClear}>Clear</button>
 
         </div>
