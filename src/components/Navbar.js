@@ -6,7 +6,7 @@ export default function Navbar(props) {
     const [isDarkMode, setIsDarkMode] = useState(false);
 
     useEffect(() => {
-        // Apply or remove dark mode class on the document element
+        // Apply or remove dark mode className on the document element
         if (isDarkMode) {
         document.documentElement.setAttribute('data-bs-theme', 'dark');
         } else {
@@ -19,7 +19,7 @@ export default function Navbar(props) {
     };
 
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
         <div className="container-fluid">
           <a className="navbar-brand" href="/">{props.title}</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,17 +53,26 @@ export default function Navbar(props) {
             <button className="navbar-toggler" type="button">
             <span className="navbar-toggler-icon"></span>
             </button>
-            <div className="collapse navbar-collapse">
-            <ul className="navbar-nav ms-auto">
-                <li className="nav-item">
-                <button 
-                    className="btn btn-outline-secondary"
-                    onClick={toggleDarkMode}
-                >
-                    {isDarkMode ? '☀️ Light' : '🌙 Dark'}
-                </button>
-                </li>
-            </ul>
+            {/* <div className="collapse navbar-collapse">
+              <ul className="navbar-nav ms-auto">
+                  <li className="nav-item">
+                  <button 
+                      className="btn btn-outline-secondary"
+                      onClick={toggleDarkMode}
+                  >
+                      {isDarkMode ? '☀️ Light' : '🌙 Dark'}
+                  </button>
+                  </li>
+              </ul>
+            </div> */}
+            {/* <div className="collapse navbar-collapse">
+              <ul className="navbar-nav ms-auto">
+                  <li className="nav-item"></li> */}
+            <div className="className">
+              <div className="form-check form-switch">
+                  <input className="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" />
+                  <label className="form-check-label" for="switchCheckDefault">Mode</label>
+              </div>
             </div>
           </div>
         </div>

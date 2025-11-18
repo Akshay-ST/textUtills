@@ -33,7 +33,19 @@ export default function TextForm(props){
         let newText = text.split(' ').reverse().join(' ');
         setText(newText);
     }
+
+    const handleCopy = ()=>{
+        console.log("Copy was clicked " + text)
+        var copytext = document.getElementById("myBox");
+        copytext.select();
+        navigator.clipboard.writeText(copytext.value);
+    }
     
+    const handleExtraSpaces = ()=>{
+        let newText = text.split(/[ ]+/);
+        setText(newText.join(" "));
+    }
+
     const handleOnChange = (event)=>{
         console.log("Handle On Change");
         setText(event.target.value);
@@ -50,6 +62,8 @@ export default function TextForm(props){
             <button className="btn btn-primary mx-1" onClick={handleLowClick}>Convert to LowerCase</button>
             <button className="btn btn-primary mx-1" onClick={handleRev}>Reverse</button>
             <button className="btn btn-primary mx-1" onClick={handleRevStr}>Invert String</button>
+            <button className="btn btn-primary mx-1" onClick={handleCopy}>Copy text</button>
+            <button className="btn btn-primary mx-1" onClick={handleExtraSpaces}>Remove spaces</button>
             <button className="btn btn-primary mx-1" onClick={handleClear}>Clear</button>
 
         </div>
